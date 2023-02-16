@@ -49,7 +49,7 @@ Vue.component('product', {
         
         <div>
          <h2>Reviews</h2>
-         <p v-if="!reviews.length">There are no reviews yet.</p>
+         <p v-if="!reviews.length"></p>
          <ul>
            <li v-for="review in reviews">
            <p>{{ review.name }}</p>
@@ -184,7 +184,7 @@ Vue.component('product', {
         <textarea id="review" v-model="review" placeholder="Review"></textarea>
       </p>
       <p>
-      <label for="recomend">Recomend:</label>
+      <label for="recomend">Would you recommend this product?</label>
       <select id="recomend" v-model.number="recomend">
         <option>yes</option>
         <option>no</option>
@@ -251,8 +251,8 @@ Vue.component('product', {
                 @click="selectedTab = tab">{{ tab }}
             </span>
        </ul>
-       <div v-show="selectedTab == 'Отзывы'">
-            <h2>Отзывы</h2>
+       <div v-show="selectedTab == 'Reviews'">
+            <h2>Reviews</h2>
                     <ul>
                       <li v-for="review in reviews">
                       <p>Название:{{ review.name }}</p>
@@ -263,15 +263,15 @@ Vue.component('product', {
                     </ul>
         </div>
             
-           <div v-show="selectedTab === 'Оставить отзыв'">
+           <div v-show="selectedTab === 'Make Review'">
                 <product-review></product-review>
             </div>
         
-            <div v-show="selectedTab === 'Доставка'">
+            <div v-show="selectedTab === 'Shipping'">
                 <p>Доставка: {{ shipping }}</p>
             </div>
         
-            <div v-show="selectedTab === 'Информация'">
+            <div v-show="selectedTab === 'Information'">
                 <product-details/>
             </div>
             
@@ -281,8 +281,8 @@ Vue.component('product', {
  `,
     data() {
         return {
-            tabs: ['Отзывы', 'Оставить отзыв', 'Доставка', 'Информация'],
-            selectedTab: 'Отзывы'  
+            tabs: ['Reviews', 'Make Review', 'Shipping', 'Information'],
+            selectedTab: 'Reviews'  
         }
     },
     props: {
