@@ -30,10 +30,22 @@ Vue.component('product', {
        <ul>
            <li v-for="detail in details">{{ detail }}</li>
         </ul>
-            
-       <ul>
+           
+        <p>
+        <label for="size in sizes"> Sizes </label>
+        <select id="size" v-model.number="size">
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
+          <option>XXXL</option>
+        </select>
+      </p>
+       
+      <!--<ul>
            <li v-for="size in sizes">{{ size }}</li>
-       </ul>
+       </ul>-->
               
        <div
        class="color-box"
@@ -184,7 +196,7 @@ Vue.component('product', {
         <textarea id="review" v-model="review" placeholder="Review"></textarea>
       </p>
       <p>
-      <label for="recomend">Would you recommend this product?</label>
+      <label for="recomend">Recomend:</label>
       <select id="recomend" v-model.number="recomend">
         <option>yes</option>
         <option>no</option>
@@ -218,7 +230,7 @@ Vue.component('product', {
         methods:{
             onSubmit() {
                 if(this.name && this.review && this.rating && this.recomend) {
-                    let productReview = {
+                    let produсtReview = {
                         name: this.name,
                         review: this.review,
                         rating: this.rating,
@@ -287,7 +299,7 @@ Vue.component('product', {
     },
     props: {
         reviews: {
-            type: Array,
+            tуpe: Boolean,
             required: false,
             },
 
